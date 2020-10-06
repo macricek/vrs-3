@@ -47,6 +47,9 @@
 
 #define BUTTON_GET_STATE		(!(GPIOA_IDR_REG & (1 << 3)))
 // tu nastavyme typ hrany
-#define EDGE_TYPE				enum edgetype = {NONE,RISE,FALL}
+
+enum EDGE_TYPE {NONE,RISE,FALL};
+
+enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);
 
 #endif /* ASSIGNMENT_H_ */

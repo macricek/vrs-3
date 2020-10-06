@@ -72,11 +72,14 @@ int main(void)
 
 		       LL_Init1msTick(SystemCoreClock);  // nastavenie INIT ticku...podla frekvencie procesora
 
+		 enum EDGE_TYPE edge_type;
+
 		       while (1)
 	  {
 
+		    	  edge_type = edgeDetect(BUTTON_GET_STATE, 5);
 
-		    	   if(BUTTON_GET_STATE)
+		    	  /* if(BUTTON_GET_STATE)
 		    	   	  {
 		    	   		  // 0.25s delay
 		    	   		  LL_mDelay(250);
@@ -93,7 +96,7 @@ int main(void)
 		    	   		  // 1s delay
 		    	   		  LL_mDelay(1000);
 		    	   		  LED_OFF;
-		    	   	  }
+		    	   	  } */
 	  }
 
 	}
@@ -112,6 +115,11 @@ int main(void)
 	  /* User can add his own implementation to report the HAL error return state */
 
 	  /* USER CODE END Error_Handler_Debug */
+	}
+
+	enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples)
+	{
+		return 1;
 	}
 
 	#ifdef  USE_FULL_ASSERT
