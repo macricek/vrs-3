@@ -52,4 +52,6 @@ enum EDGE_TYPE {NONE,RISE,FALL};								// enumeracia 3 typov hrán
 
 enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);	// zadefinovanie funkcie edgeDetect
 
+int pocet_vzoriek_za_sebou(int akt, uint8_t pin_state, uint8_t pin_state_before);
+
 #endif /* ASSIGNMENT_H_ */

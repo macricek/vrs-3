@@ -22,6 +22,7 @@
 #include "main.h"
 #include "assignment.h"
 
+uint8_t before = 0;
 int main(void)
 {
   /*
@@ -115,6 +116,15 @@ int main(void)
 	  /* User can add his own implementation to report the HAL error return state */
 
 	  /* USER CODE END Error_Handler_Debug */
+	}
+
+	int pocet_vzoriek_za_sebou(int akt, uint8_t pin_state, uint8_t pin_state_before)
+	{
+		if (pin_state == pin_state_before)
+		{
+			akt++;
+		}
+		return akt;
 	}
 
 	enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples)
