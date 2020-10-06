@@ -46,6 +46,7 @@
 #define LED_OFF					GPIOA_ODR_REG &= ~(1 << 4);
 
 #define BUTTON_GET_STATE		(!(GPIOA_IDR_REG & (1 << 3)))
-
+// tu nastavyme typ hrany
+#define EDGE_TYPE				enum edgetype = {NONE,RISE,FALL}
 
 #endif /* ASSIGNMENT_H_ */
