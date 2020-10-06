@@ -48,8 +48,8 @@
 #define BUTTON_GET_STATE		(!(GPIOA_IDR_REG & (1 << 3)))
 // tu nastavyme typ hrany
 
-enum EDGE_TYPE {NONE,RISE,FALL};
+enum EDGE_TYPE {NONE,RISE,FALL};								// enumeracia 3 typov hrán
 
-enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);
+enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);	// zadefinovanie funkcie edgeDetect
 
 #endif /* ASSIGNMENT_H_ */
