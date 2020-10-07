@@ -74,31 +74,28 @@ int main(void)
 		       //Set no pull for GPIOB pin 4
 			GPIOA_PUPDR_REG	 &= ~(0x3 << 8);
 
-		       LL_Init1msTick(SystemCoreClock);  // nastavenie INIT ticku...podla frekvencie procesora
+		   //    LL_Init1msTick(SystemCoreClock);  // nastavenie INIT ticku...podla frekvencie procesora
 
 		 enum EDGE_TYPE edge_type;
 
 		       while (1)
 	  {
+		    	  uint8_t pomocny_stav= BUTTON_GET_STATE;
 
-		    	  edge_type = edgeDetect(BUTTON_GET_STATE, 5);
+		    	  edge_type = edgeDetect(pomocny_stav,6);
+
+		    	  uint8_t pomocna =LED_STATUS;
 
 		    	  if(edge_type == RISE)
 		    	  {
-		    		  if (LED_STATUS)
+		    		  if (LED_STATUS == 16) // 2 na 4tu
 		    		  {
 		    			  LED_OFF;
 		    		  }else{
 		    			LED_ON;
 		    		  }
 		    	  }
-
-
-
-
-		    	  minula = BUTTON_GET_STATE;		//potrebujem si ukladat predchadzajucu
-
-
+		    	  minula = pomocny_stav;		//potrebujem si ukladat predchadzajucu
 		    	  /* if(BUTTON_GET_STATE)
 		    	   	  {
 		    	   		  // 0.25s delay
@@ -137,7 +134,7 @@ int main(void)
 	  /* USER CODE END Error_Handler_Debug */
 	}
 
-	int pocet_vzoriek_za_sebou(int akt, uint8_t pin_state, uint8_t pin_state_before)	// fcn pocitadlo
+	uint8_t pocet_vzoriek_za_sebou(uint8_t akt, uint8_t pin_state, uint8_t pin_state_before)	// fcn pocitadlo
 	{
 		if (pin_state == pin_state_before)												// ak je dodrzana sekvencia incrementujeme
 		{
@@ -166,7 +163,7 @@ int main(void)
 					return FALL;
 				}
 			}
-			else return NONE;										//ak nic, tak return NONE;
+			return NONE;										//ak nic, tak return NONE;
 	}
 
 	#ifdef  USE_FULL_ASSERT
