@@ -49,7 +49,7 @@
 // tu nastavyme typ hrany
 #define LED_STATUS 				(GPIOA_ODR_REG & (1 << 4))							//zadefinovanie citania statusu LEDky
 
-enum EDGE_TYPE {NONE,RISE,FALL};								// enumeracia 3 typov hrán
+enum EDGE_TYPE {NONE = 0,RISE = 1,FALL = 2};								// enumeracia 3 typov hrán
 
 enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);	// zadefinovanie funkcie edgeDetect
 

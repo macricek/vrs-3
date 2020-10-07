@@ -86,7 +86,7 @@ int main(void)
 
 		    	  uint8_t pomocna =LED_STATUS;
 
-		    	  if(edge_type == RISE)
+		    	  if(edge_type == FALL)
 		    	  {
 		    		  if (LED_STATUS == 16) // 2 na 4tu
 		    		  {
