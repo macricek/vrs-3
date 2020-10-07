@@ -136,7 +136,21 @@ int main(void)
 
 	enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples)
 	{
-		return 1;
+		akt = pocet_vzoriek_za_sebou(akt, pin_state, minula);		//aktualny pocet rovnakych vzoriek za sebou
+			if (akt == samples)										//ak je to tolko, co potrebujeme, tak potencialny check pre rise a fall
+			{
+				if (pin_state == 1 && current_state == 0)			//ak je na vstupe 1 a aktualny stav je 0, prepni stav a daj RISE
+				{
+					current_state = 1;
+					return RISE;
+				}
+				else if (pin_state == 0 && current_state == 1)		//ak je na vstupe 0 a aktualny stav je 1, prepni stav a daj FALL
+				{
+					current_state = 0;
+					return FALL;
+				}
+			}
+			else return NONE;										//ak nic, tak return NONE;
 	}
 
 	#ifdef  USE_FULL_ASSERT
