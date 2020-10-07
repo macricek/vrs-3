@@ -37,16 +37,17 @@
 
 /*Reset clock control register macros */
 //RCC base address
-#define	RCC_BASE_ADDR			(uint32_t)(0x40021000U) //the same
+#define	RCC_BASE_ADDR			(uint32_t)(0x40021000U)
 //AHBEN register
-#define	RCC_AHBENR_REG			*((volatile uint32_t *) (uint32_t)(RCC_BASE_ADDR + 0x00000014U)) //the same
+#define	RCC_AHBENR_REG			*((volatile uint32_t *) (uint32_t)(RCC_BASE_ADDR + 0x00000014U))
 
 /* LED and button macros */
-#define LED_ON					GPIOA_ODR_REG |= (1 << 4);
-#define LED_OFF					GPIOA_ODR_REG &= ~(1 << 4);
+#define LED_ON					GPIOA_ODR_REG |= (1 << 4)
+#define LED_OFF					GPIOA_ODR_REG &= ~(1 << 4)
 
 #define BUTTON_GET_STATE		(!(GPIOA_IDR_REG & (1 << 3)))
 // tu nastavyme typ hrany
+#define LED_STATUS 				(GPIOA_ODR_REG & (1 << 4))							//zadefinovanie citania statusu LEDky
 
 enum EDGE_TYPE {NONE,RISE,FALL};								// enumeracia 3 typov hrán
 

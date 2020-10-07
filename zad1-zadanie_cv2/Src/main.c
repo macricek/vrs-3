@@ -83,6 +83,22 @@ int main(void)
 
 		    	  edge_type = edgeDetect(BUTTON_GET_STATE, 5);
 
+		    	  if(edge_type == RISE)
+		    	  {
+		    		  if (LED_STATUS)
+		    		  {
+		    			  LED_OFF;
+		    		  }else{
+		    			LED_ON;
+		    		  }
+		    	  }
+
+
+
+
+		    	  minula = BUTTON_GET_STATE;		//potrebujem si ukladat predchadzajucu
+
+
 		    	  /* if(BUTTON_GET_STATE)
 		    	   	  {
 		    	   		  // 0.25s delay
@@ -121,13 +137,13 @@ int main(void)
 	  /* USER CODE END Error_Handler_Debug */
 	}
 
-	int pocet_vzoriek_za_sebou(int akt, uint8_t pin_state, uint8_t pin_state_before)
+	int pocet_vzoriek_za_sebou(int akt, uint8_t pin_state, uint8_t pin_state_before)	// fcn pocitadlo
 	{
-		if (pin_state == pin_state_before)
+		if (pin_state == pin_state_before)												// ak je dodrzana sekvencia incrementujeme
 		{
 			akt++;
 		}
-		else
+		else																			// ak nieje dodrzana sekvencia returnem 1 ku
 		{
 			akt=1;
 		}
