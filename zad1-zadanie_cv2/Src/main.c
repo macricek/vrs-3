@@ -82,7 +82,7 @@ int main(void)
 	  {
 		    	  uint8_t pomocny_stav= BUTTON_GET_STATE;
 
-		    	  edge_type = edgeDetect(pomocny_stav,6);
+		    	  edge_type = edgeDetect(pomocny_stav,8);
 
 		    	  uint8_t pomocna =LED_STATUS;
 
