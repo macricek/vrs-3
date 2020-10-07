@@ -22,7 +22,10 @@
 #include "main.h"
 #include "assignment.h"
 
-uint8_t before = 0;
+uint8_t minula = 0;
+uint8_t akt = 1;
+uint8_t current_state = 0;
+
 int main(void)
 {
   /*
@@ -123,6 +126,10 @@ int main(void)
 		if (pin_state == pin_state_before)
 		{
 			akt++;
+		}
+		else
+		{
+			akt=1;
 		}
 		return akt;
 	}

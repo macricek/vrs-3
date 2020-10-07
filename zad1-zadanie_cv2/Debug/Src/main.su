@@ -1,3 +1,4 @@
-main.c:25:5:main	16	static
-main.c:112:7:Error_Handler	4	static
-main.c:120:17:edgeDetect	16	static
+main.c:29:5:main	16	static
+main.c:116:7:Error_Handler	4	static
+main.c:124:6:pocet_vzoriek_za_sebou	16	static
+main.c:137:17:edgeDetect	16	static
